@@ -20,15 +20,15 @@
   >
     <!-- email input -->
     <div class="pb-8 w-full">
-      <p-password
+      <input
         class="w-full h-full rounded-full text-xs sm:text-base py-5"
+        pInputText
         formControlName="email"
         placeholder="Email"
         type="text"
         id="email"
         name="email"
         autocomplete="off"
-        [feedback]="false"
       />
       <div
         *ngIf="

@@ -1,12 +1,17 @@
 .login {
-  input {
+  input:not([type="checkbox"]) {
     background-color: transparent !important;
-    border: none !important;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
+    width: 100% !important;
+    padding: 17px 30px !important;
+    border-radius: 30px !important;
+    -webkit-border-radius: 30px !important;
+    -moz-border-radius: 30px !important;
+    -ms-border-radius: 30px !important;
+    -o-border-radius: 30px !important;
+    @media screen and (max-width: 512px) {
+      font-size: 14px !important;
+      padding: 15px 30px !important;
+    }
   }
   .border-style {
     background: rgb(255, 255, 255);
