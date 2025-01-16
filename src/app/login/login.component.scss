@@ -1,0 +1,20 @@
+.login {
+  input {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
+  .border-style {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      294deg,
+      rgba(255, 255, 255, 1) 20%,
+      rgba(255, 255, 255, 0.08309261204481788) 100%
+    );
+    background-clip: border-box;
+  }
+}

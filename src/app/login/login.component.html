@@ -1,0 +1,151 @@
+<section class="login text-center">
+  <h3 class="sm:text-6xl text-3xl">Welcome Back!</h3>
+  <p class="mb-8 mt-6 sm:text-xl text-sm font-light text-gray-300">
+    Please enter your details to sign in
+  </p>
+  <div
+    *ngIf="this.AuthService.loginErrors"
+    class="alert alert-danger warn-alert"
+  >
+    <p class="mb-3 text-red-600 text-xs sm:text-base text-center">
+      {{ this.AuthService.loginErrors }}
+    </p>
+  </div>
+  <!-- login form -->
+  <form
+    class="xl:px-3 pt-4 px-sm-0 pt-sm-0 w-full max-w-md mx-auto"
+    [formGroup]="loginForm"
+    action="post"
+    (ngSubmit)="submitLoginForm(loginForm)"
+  >
+    <!-- email input -->
+    <div class="pb-8 w-full">
+      <p-password
+        class="w-full h-full rounded-full text-xs sm:text-base py-5"
+        formControlName="email"
+        placeholder="Email"
+        type="text"
+        id="email"
+        name="email"
+        autocomplete="off"
+        [feedback]="false"
+      />
+      <div
+        *ngIf="
+          loginForm.get('email')?.errors != null &&
+          loginForm.get('email')?.touched
+        "
+        class="alert alert-danger mt-3 mb-0"
+      >
+        <p
+          class="mb-0 text-sm text-red-600"
+          *ngIf="loginForm.get('email')?.errors?.['required']"
+        >
+          Email is required
+        </p>
+        <p
+          class="mb-0 text-sm text-red-600"
+          *ngIf="loginForm.get('email')?.errors?.['email']"
+        >
+          invalid email
+        </p>
+      </div>
+    </div>
+    <!-- End email input -->
+    <!-- password input -->
+    <div class="w-full">
+      <p-password
+        class="w-full h-full rounded-full text-xs sm:text-base py-5"
+        formControlName="password"
+        placeholder="Password"
+        type="password"
+        id="password"
+        name="password"
+        autocomplete="off"
+        [toggleMask]="true"
+        [feedback]="false"
+      />
+      <div
+        *ngIf="
+          loginForm.get('password')?.errors != null &&
+          loginForm.get('password')?.touched
+        "
+        class="alert alert-danger mt-3"
+      >
+        <p
+          class="mb-0 text-sm text-red-600"
+          *ngIf="loginForm.get('password')?.errors?.['required']"
+        >
+          Password is required
+        </p>
+        <p
+          class="mb-0 text-sm text-red-600"
+          *ngIf="loginForm.get('password')?.errors?.['pattern']"
+        >
+          Pasword must be between 6-15 with no special characters
+        </p>
+      </div>
+    </div>
+    <!-- End password input -->
+
+    <p class="mt-4 text-gray-200 text-end text-xs sm:text-base">
+      Forgot password?
+    </p>
+
+    <div class="text-start flex items-center">
+      <input
+        class="cursor-pointer w-5 h-5"
+        type="checkbox"
+        id="remember"
+        name="remember"
+      />
+      <label for="remember" class="text-xs sm:text-base ms-3 cursor-pointer">
+        Remember me
+      </label>
+    </div>
+    <!-- Sign in button-->
+    <div
+      class="flex justify-center mt-10 text-white w-full bg-zinc-700 rounded-full sm:py-2 py-1 border-2 border-gray-400 border-b-0"
+    >
+      <button
+        [disabled]="loginForm.invalid"
+        type="submit"
+        class="rounded-full font-medium w-full max-w-48 py-2 disabled:opacity-50 text-xs sm:text-lg"
+      >
+        <span>Sign In</span>
+      </button>
+    </div>
+    <!--End Sign in button-->
+    <div class="flex items-center mt-10 gap-x-3">
+      <div
+        class="border-style border-b-2 opacity-60 w-full rounded-l-full"
+      ></div>
+      <span>Or</span>
+      <div
+        class="border-style border-b-2 opacity-60 w-full rounded-r-full"
+      ></div>
+    </div>
+    <!-- Google login button -->
+    <div
+      (click)="login()"
+      class="flex justify-center mt-10 text-white w-full rounded-full py-2 border-2 border-gray-400 border-b-0"
+    >
+      <button
+        type="button"
+        class="rounded-full font-medium w-full max-w-48 sm:py-2 py-0 disabled:opacity-50 text-xs sm:text-lg"
+      >
+        <span class="flex items-center justify-center"
+          >Sign In with
+          <span class="ms-2"
+            ><img class="w-6 h-6" src="assets/google.png" alt="" /></span
+        ></span>
+      </button>
+    </div>
+    <!-- End Google login button -->
+  </form>
+  <!-- End login form -->
+  <p class="text-center mt-10 sign-question sm:text-sm text-xs">
+    <span class="text-gray-300"> Don't have an account ?</span>
+    <a class="ms-2 font-semibold">Sign up</a>
+  </p>
+</section>
