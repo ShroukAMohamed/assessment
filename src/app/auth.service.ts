@@ -97,6 +97,7 @@ export class AuthService {
   logOut() {
     localStorage.removeItem('userToken');
     localStorage.removeItem('email');
+    this.loginErrors = '';
     if (localStorage.getItem('username') != null) {
       localStorage.removeItem('username');
     }
