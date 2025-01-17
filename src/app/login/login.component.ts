@@ -1,5 +1,7 @@
 import { NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input, PLATFORM_ID } from '@angular/core';
+import { Dialog } from 'primeng/dialog';
+import { isPlatformBrowser } from '@angular/common';
 import {
   FormControl,
   FormGroup,
@@ -21,6 +23,7 @@ import { PasswordModule } from 'primeng/password';
     FloatLabelModule,
     InputTextModule,
     PasswordModule,
+    Dialog
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
@@ -33,9 +36,16 @@ export class LoginComponent {
       Validators.pattern(`^[A-Za-z0-9]{6,15}$`),
     ]),
   });
+  visible!: boolean;
+  constructor(public AuthService: AuthService,  @Inject(PLATFORM_ID) private platformId: Object) {}
 
-  constructor(public AuthService: AuthService) {}
-
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.AuthService.visible.subscribe(() => {
+        this.visible = this.AuthService.visible.getValue();
+      });
+    }
+  }
   submitLoginForm(loginForm: FormGroup) {
     console.log(loginForm.value.email);
     // this.AuthService.saveData()

@@ -23,3 +23,40 @@
     background-clip: border-box;
   }
 }
+
+::ng-deep {
+  .p-dialog, .p-dialog-content {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .p-overlay-mask {
+    backdrop-filter: blur(80px); /* Blur the background */
+    background-color: rgba(0, 0, 0, 0.098); /* Add a semi-transparent overlay */
+  }
+  .p-password {
+    width: 100% !important;
+  }
+  .p-password-input {
+    background-color: transparent !important;
+    width: 100% !important;
+    padding: 17px 30px !important;
+    border-radius: 30px !important;
+    -webkit-border-radius: 30px !important;
+    -moz-border-radius: 30px !important;
+    -ms-border-radius: 30px !important;
+    -o-border-radius: 30px !important;
+    @media screen and (max-width: 512px) {
+      font-size: 14px !important;
+      padding: 15px 30px !important;
+    }
+  }
+  eyeicon {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  eyeslashicon {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+}

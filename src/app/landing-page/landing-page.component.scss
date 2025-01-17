@@ -1,14 +1,14 @@
 .landing-page {
-  height: 100vh;
-  background: rgb(79, 170, 157);
-  background: linear-gradient(
-    138deg,
-    rgba(79, 170, 157, 0.2623643207282913) 20%,
-    rgba(47, 13, 77, 0.7581626400560224) 100%
-  );
-  @media screen and (max-width: 1024px) {
-    height: 100%;
-  }
+  // height: 100vh;
+  // background: rgb(79, 170, 157);
+  // background: linear-gradient(
+  //   138deg,
+  //   rgba(79, 170, 157, 0.2623643207282913) 20%,
+  //   rgba(47, 13, 77, 0.7581626400560224) 100%
+  // );
+  // @media screen and (max-width: 1024px) {
+  //   height: 100%;
+  // }
   .image {
     background-image: url("../../../public/assets/Coupon\ Preview.svg");
     background-size: cover;
@@ -36,42 +36,5 @@
     text-shadow: -1.3px -1.3px 0 black, /* Top-left */ 1.3px -1.3px 0 black,
       /* Top-right */ -1.3px 1.3px 0 black,
       /* Bottom-left */ 1.3px 1.3px 0 black; /* Bottom-right */
-  }
-}
-
-::ng-deep {
-  .p-dialog {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-  .p-overlay-mask {
-    backdrop-filter: blur(40px); /* Blur the background */
-    background-color: rgba(0, 0, 0, 0.4); /* Add a semi-transparent overlay */
-  }
-  .p-password {
-    width: 100% !important;
-  }
-  .p-password-input {
-    background-color: transparent !important;
-    width: 100% !important;
-    padding: 17px 30px !important;
-    border-radius: 30px !important;
-    -webkit-border-radius: 30px !important;
-    -moz-border-radius: 30px !important;
-    -ms-border-radius: 30px !important;
-    -o-border-radius: 30px !important;
-    @media screen and (max-width: 512px) {
-      font-size: 14px !important;
-      padding: 15px 30px !important;
-    }
-  }
-  eyeicon {
-    margin-right: 15px;
-    cursor: pointer;
-  }
-  eyeslashicon {
-    margin-right: 15px;
-    cursor: pointer;
   }
 }

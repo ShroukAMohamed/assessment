@@ -37,6 +37,7 @@ export class AuthService {
       localStorage.setItem('email', email);
       localStorage.setItem('username', userName);
       this.visible.next(false);
+      this.Router.navigate(['home'])
       this.toastr.success('Welcome Back!', '', {
         progressBar: true,
       });
@@ -61,6 +62,7 @@ export class AuthService {
         this.token.next(userToken);
         localStorage.setItem('userToken', userToken);
         localStorage.setItem('email', email);
+        this.Router.navigate(['home'])
         this.visible.next(false);
       })
       .catch((error) => {
@@ -97,6 +99,7 @@ export class AuthService {
   logOut() {
     localStorage.removeItem('userToken');
     localStorage.removeItem('email');
+    this.Router.navigate(['login'])
     this.loginErrors = '';
     if (localStorage.getItem('username') != null) {
       localStorage.removeItem('username');
